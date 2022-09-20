@@ -1,13 +1,13 @@
 from typing import List, Set
 
 
-def islands_count(grid: List[List[str]]):
-    count = 0
+def min_islands(grid: List[List[str]]):
+    min_count = float("inf")
     visited = set()
     for r in range(len(grid)):
         for c in range(len(grid[0])):
-            count += explore(grid, r, c, visited)
-    return count
+            min_count = min(min_count, explore(grid, r, c, visited))
+    return min_count
 
 
 def explore(grid: List[List[str]], r: int, c: int, visited: Set[str]):
@@ -15,18 +15,22 @@ def explore(grid: List[List[str]], r: int, c: int, visited: Set[str]):
     c_bound = 0 <= c < len(grid[0])
 
     if not (r_bound and c_bound and grid[r][c] == "w"):
-        return False
+        return 0
 
     key = f"{r},{c}"
     if key in visited:
-        return False
+        return 0
     visited.add(key)
 
-    explore(grid, r - 1, c, visited)
-    explore(grid, r, c - 1, visited)
-    explore(grid, r + 1, c, visited)
-    explore(grid, r, c + 1, visited)
-    return True
+    return (
+        1
+        + explore(grid, r - 1, c, visited)
+        + explore(grid, r, c - 1, visited)
+        + explore(grid, r + 1, c, visited)
+        + explore(grid, r, c + 1, visited)
+    )
+
+    return val
 
 
 grid = [
@@ -35,4 +39,4 @@ grid = [
     "lllwwwwlwwwwllllllllllll",
     "wwlllllllwwwwlllllllllll",
 ]
-print("Islands count is", islands_count(grid))
+print("Smallest island is of size", min_islands(grid))
