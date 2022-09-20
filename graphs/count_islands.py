@@ -14,7 +14,7 @@ def explore(grid: List[List[str]], r: int, c: int, visited: Set[str]):
     r_bound = 0 <= r < len(grid)
     c_bound = 0 <= c < len(grid[0])
 
-    if not (r_bound and c_bound and grid[r][c] == "w"):
+    if not (r_bound and c_bound and grid[r][c] == "l"):
         return False
 
     key = f"{r},{c}"
