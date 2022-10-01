@@ -14,7 +14,7 @@ let canConstruct = (target, wordBank, memo = {}) => {
   memo[target] = false;
   return false;
 };
-console.log(canConstruct("purple", ["pur", "plue", "pl", "e"]));
+console.log(canConstruct("purple", ["pur", "ple", "pl", "e", 'pu', 'r']));
 console.log(
   canConstruct(
     "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef",
