@@ -10,4 +10,4 @@ def grid_traveler(n, m, memo={}):
     return memo[key]
 
 
-print(grid_traveler(300, 300))
+print(grid_traveler(30, 30))
