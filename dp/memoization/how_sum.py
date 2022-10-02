@@ -15,4 +15,4 @@ def how_sum(target: int, list: list, memo={}) -> list:
     return None
 
 
-print(how_sum(300, [7, 14]))
+print(how_sum(300, [7, 14, 2]))
