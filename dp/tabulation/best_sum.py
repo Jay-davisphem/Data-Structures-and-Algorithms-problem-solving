@@ -15,4 +15,4 @@ def best_sum(target, array):
     return dp[target]
 
 
-print(best_sum(700, [5, 3, 4]))
+print(best_sum(7, [5, 3, 4, 2]))
